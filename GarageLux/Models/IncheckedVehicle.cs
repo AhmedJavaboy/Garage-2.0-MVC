@@ -17,13 +17,14 @@ namespace GarageLux.Models
         public string Model { get; set; }
         public Wheel Wheel { get; set; }
 
-        [DataType(DataType.Date)]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
+        [DataType(DataType.DateTime)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{00:yyyy/MM/dd HH:mm}")]
         public DateTime CheckInTime { get; set; }
 
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}")]
+        [DataType(DataType.DateTime)]
+        [DisplayFormat(DataFormatString = "{00:yyyy/MM/dd HH:mm}")]
         public DateTime CheckOutTime { get; set; }
+
         public bool Status { get; set; }
     }
     public enum Vtype
