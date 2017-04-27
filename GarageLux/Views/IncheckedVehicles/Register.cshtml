@@ -1,0 +1,90 @@
+﻿@model IEnumerable<GarageLux.Models.IncheckedVehicle>
+
+@{
+    ViewBag.Title = "Register";
+}
+
+<h2>Register</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Registreringsnummer
+        </th>
+        <th>
+            Typ av fordon
+        </th>
+        <th>
+            Märke
+        </th>
+        <th>
+            Modell
+        </th>
+        <th>
+            Antal hjul
+        </th>
+        <th>
+            Incheckning
+        </th>
+
+        <th>
+            Utcheckning
+        </th>
+
+        <th>
+            Utcheckat fordon
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RegNr)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vtype)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Brand)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Wheel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CheckInTime)
+            </td>
+            @if (item.Status)
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.CheckOutTime)
+                </td>
+            }
+            else
+            {
+                <td>
+                    NAN
+                </td>
+
+            }
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            @if (!item.Status) {
+                    @Html.ActionLink("Check Out", "CheckOut", new { id = item.ID })
+            }</td>
+        </tr>
+    }
+
+</table>

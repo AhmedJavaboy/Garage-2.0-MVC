@@ -16,6 +16,12 @@ namespace GarageLux.Controllers
         private IncheckedVehicleContext db = new IncheckedVehicleContext();
 
         // GET: IncheckedVehicles
+        public ActionResult Register()
+        {
+            return View(db.Vehicles.ToList());
+        }
+
+        // GET: IncheckedVehicles
         public ActionResult Index()
         {
             return View(db.Vehicles.ToList());
@@ -117,6 +123,33 @@ namespace GarageLux.Controllers
             db.Vehicles.Remove(incheckedVehicle);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+        // GET: IncheckedVehicles/Delete/5
+        public ActionResult CheckOut(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            IncheckedVehicle incheckedVehicle = db.Vehicles.Find(id);
+            if (incheckedVehicle == null)
+            {
+                return HttpNotFound();
+            }
+            return View(incheckedVehicle);
+        }
+
+        // POST: IncheckedVehicles/Delete/5
+        [HttpPost, ActionName("CheckOut")]
+        [ValidateAntiForgeryToken]
+        public ActionResult CheckOut(int id)
+        {
+            IncheckedVehicle incheckedVehicle = db.Vehicles.Find(id);
+            incheckedVehicle.CheckOutTime = DateTime.Now;
+            incheckedVehicle.Status = true;
+            db.Entry(incheckedVehicle).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Index");            
         }
 
         protected override void Dispose(bool disposing)
