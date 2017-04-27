@@ -116,6 +116,19 @@ namespace GarageLux.Controllers
             return RedirectToAction("Index");
         }
 
+       
+        public ActionResult Search(string reg=null)
+        {
+
+            var model = from r in db.Vehicles
+                where r.RegNr== null || r.RegNr.StartsWith(reg)
+                select r;
+
+
+
+            return View(model);
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
