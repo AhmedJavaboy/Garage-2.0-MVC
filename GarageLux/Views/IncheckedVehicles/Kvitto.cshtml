@@ -1,0 +1,35 @@
+﻿@model GarageLux.ViewModel.KvittoViewModel
+
+@{
+    ViewBag.Title = "Kvitto";
+}
+
+<h2>Kvitto</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Cost)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Time)
+        </th>
+    </tr>
+
+
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => @Model.Cost) $
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => @Model.Time) Hour
+        </td>
+        
+    </tr>
+
+
+</table>

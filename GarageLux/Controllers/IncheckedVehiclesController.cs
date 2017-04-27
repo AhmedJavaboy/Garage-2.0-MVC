@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using GarageLux.DataAccessLayer;
 using GarageLux.Models;
+using GarageLux.ViewModel;
 
 namespace GarageLux.Controllers
 {
@@ -149,7 +150,7 @@ namespace GarageLux.Controllers
             incheckedVehicle.Status = true;
             db.Entry(incheckedVehicle).State = EntityState.Modified;
             db.SaveChanges();
-            return RedirectToAction("Index");            
+            return RedirectToActionPermanent("Kvitto",id= incheckedVehicle.ID);            
         }
 
         protected override void Dispose(bool disposing)
@@ -159,6 +160,21 @@ namespace GarageLux.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public ActionResult Kvitto(int? id)
+        {
+
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            IncheckedVehicle incheckedVehicle = db.Vehicles.Find(id);
+            KvittoViewModel kvm = new KvittoViewModel();
+            float seconds =( (DateTime.Now.Millisecond - incheckedVehicle.CheckInTime.Millisecond)/ (  1000));
+            
+            kvm.Cost =.6f * seconds;
+            return View(kvm);
         }
     }
 }
