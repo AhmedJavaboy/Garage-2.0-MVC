@@ -1,0 +1,29 @@
+﻿@model IEnumerable<GarageLux.Models.IncheckedVehicle>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+@*<form method="get">
+    <input type="search" name="searchTerm"/>
+    <input type="submit" value="Search By Name" />
+
+
+</form>*@
+
+
+@using (Ajax.BeginForm(new AjaxOptions() {HttpMethod = "get", InsertionMode = InsertionMode.Replace, UpdateTargetId = "VehicleList"}))
+{
+    <input type="search" name="searchTerm"/>
+    <input type="submit" value="Search By Name" />
+}
+
+
+<div id="VehicleList">
+    @foreach (var item in Model)
+    {
+        <div class="alert alert-danger">
+            <h3>@item.RegNr</h3><h3>@item.Model</h3> <h3>@item.Vtype</h3><h3>@item.Status</h3>
+        </div>
+    }
+
+</div>
