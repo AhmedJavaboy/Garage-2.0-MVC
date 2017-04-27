@@ -18,7 +18,7 @@ namespace GarageLux.Models
         public Wheel Wheel { get; set; }
 
         [DataType(DataType.Date)]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         public DateTime CheckInTime { get; set; }
 
         [DataType(DataType.Date)]

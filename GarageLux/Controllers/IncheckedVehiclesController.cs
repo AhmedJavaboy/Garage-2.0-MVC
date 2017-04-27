@@ -47,8 +47,11 @@ namespace GarageLux.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,RegNr,Vtype,Brand,Model,Wheel,CheckInTime,CheckOutTime,Status")] IncheckedVehicle incheckedVehicle)
+        public ActionResult Create([Bind(Include = "ID,RegNr,Vtype,Brand,Model,Wheel,Status")] IncheckedVehicle incheckedVehicle)
         {
+            incheckedVehicle.CheckOutTime = incheckedVehicle.CheckInTime=DateTime.Now;
+            incheckedVehicle.Status = false;
+            //incheckedVehicle.CheckOutTime = new DateTime() ;
             if (ModelState.IsValid)
             {
                 db.Vehicles.Add(incheckedVehicle);
