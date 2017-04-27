@@ -1,14 +1,18 @@
 ﻿@model IEnumerable<GarageLux.Models.IncheckedVehicle>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "  Garage Overview ";
 }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
+    <button type="button" class="btn btn-primary" onclick="location">Click on me</button>
+
+
+@Html.ActionLink("IncheckedVehicles", "Create")
+@Url.Action("Create")
+
+
 <table class="table">
     <tr>
         @*<th>
