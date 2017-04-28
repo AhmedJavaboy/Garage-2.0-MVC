@@ -6,11 +6,9 @@
 
 
 
-    <button type="button" class="btn btn-primary" onclick="location">Click on me</button>
+    <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Create")'">Add New Vehicle</button>
 
 
-@Html.ActionLink("IncheckedVehicles", "Create")
-@Url.Action("Create")
 
 
 <table class="table">
@@ -70,13 +68,21 @@
                 @Html.DisplayFor(modelItem => item.Status)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ID })|
+
+                <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Edit", new { id = item.ID })'">Edit</button>
+                <button type="button" class="btn btn-info" onclick="location.href='@Url.Action("Details", new { id = item.ID })'">Details</button>
+                <button type="button" class="btn btn-danger" onclick="location.href='@Url.Action("Delete", new { id = item.ID })'">Delete</button>
+
+
                 @if (!item.Status)
-                {    @Html.ActionLink("Check Out", "CheckOut", new { id = item.ID })
+
+                {
+                   
+             <button type="button" class="btn btn-success " onclick="location.href='@Url.Action("CheckOut", new { id = item.ID })'"> CheckOut </button> 
+                   
                 }
-            </td>
+
+                </td>
         </tr>
     }
 
