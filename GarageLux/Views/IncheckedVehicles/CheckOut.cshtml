@@ -77,6 +77,7 @@
 
     </dl>
 
+    @Html.ActionLink("Kvitto", "Kvitto", new { id = @Model.ID })
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 
