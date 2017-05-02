@@ -4,72 +4,111 @@
     ViewBag.Title = "Search";
 }
 
-<h2>Search</h2>
+<h3>Search for Vehicle</h3>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.RegNr)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Vtype)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Brand)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Model)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Wheel)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CheckInTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CheckOutTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Status)
-        </th>
-        <th></th>
-    </tr>
+@using (Ajax.BeginForm(new AjaxOptions { HttpMethod = "get", InsertionMode = InsertionMode.Replace, UpdateTargetId = "searcheArea" }))
+{
+    <div class="alert alert-info " role="alert">
+        <button type="button" onclick="this.parentNode.parentNode.removeChild(this.parentNode);" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+        <strong><i class="alert"></i> INFO!</strong> <marquee><p style="font-family: Impact; font-size: 18pt"> In this Version You Can Select Vehicle By Register Number</p></marquee>
+    </div> 
+    <div class="row">
+    <div class="col-lg-6">
+        <div class="input-group">
+            <span class="input-group-btn">
+                <button class="btn btn-primary" type="submit">Go!</button>
+            </span>
+            <input type="text" name="rg" class="form-control" placeholder="Search for Vehicel...">
+        </div>
+    </div>
+    </div>
+   
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.RegNr)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Vtype)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Brand)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Model)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Wheel)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CheckInTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CheckOutTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Status)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
 
-</table>
+
+        }
+
+
+        @*<p>
+                @Html.ActionLink("Create New", "Create")
+            </p>*@
+
+        <div id="searcheArea">
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.RegNr)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Vtype)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Brand)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Model)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Wheel)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CheckInTime)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CheckOutTime)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Status)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.RegNr)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Vtype)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Brand)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Model)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Wheel)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CheckInTime)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CheckOutTime)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Status)
+                        </td>
+                        <td>
+
+                            <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Edit", new { id = item.ID })'">Edit</button>
+                            <button type="button" class="btn btn-info" onclick="location.href='@Url.Action("Details", new { id = item.ID })'">Details</button>
+                            <button type="button" class="btn btn-danger" onclick="location.href='@Url.Action("Delete", new { id = item.ID })'">Delete</button>
+
+
+                            @if (!item.Status)
+
+                            {
+                   
+                                <button type="button" class="btn btn-success " onclick="location.href='@Url.Action("CheckOut", new { id = item.ID })'"> CheckOut </button> 
+                   
+                            }
+
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+
