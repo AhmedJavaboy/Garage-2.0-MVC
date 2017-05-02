@@ -151,9 +151,12 @@ namespace GarageLux.Controllers
             return RedirectToActionPermanent("Kvitto", new { id = incheckedVehicle.ID });            
         }
 
-        public ActionResult Search()
+        public ActionResult Search(string rg=null)
         {
-            var query = from r in db.Vehicles select r;
+
+            var query = from r in db.Vehicles
+            where (r.Model==null||r.RegNr.StartsWith(rg)||r.RegNr==rg)
+            select r;
 
             return View(query);
         }
