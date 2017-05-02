@@ -149,8 +149,18 @@ namespace GarageLux.Controllers
             incheckedVehicle.Status = true;
             db.Entry(incheckedVehicle).State = EntityState.Modified;
             db.SaveChanges();
-            return RedirectToAction("Index");            
+            return RedirectToAction("Index");
         }
+
+        public ActionResult Search()
+        {
+
+            var query = from r in db.Vehicles select r;
+
+            return View(query);
+
+        }
+
 
         protected override void Dispose(bool disposing)
         {

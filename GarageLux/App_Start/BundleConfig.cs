@@ -22,14 +22,19 @@ namespace GarageLux
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js",
-                      "~/Scripts/bootstrap-datetimepicker.js"
+                      "~/Scripts/bootstrap-datetimepicker.js",
+                      "~/Scripts/jquery_popup.js"
                 ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css",
                       "~/Content/bootstrap-datetimepicker.css",
-                      "~/Content/bootstrap-datetimepicker.min.css"));
+                      "~/Content/bootstrap-datetimepicker.min.css"
+                      ));
+
+            bundles.Add(new StyleBundle("~/Content/PopUp").Include("~/Content/jquery_popup.css"));
+
         }
     }
 }

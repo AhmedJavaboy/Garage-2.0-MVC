@@ -171,6 +171,7 @@
     <Content Include="Content\bootstrap-datetimepicker.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\jquery_popup.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -192,6 +193,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\jquery_popup.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
@@ -216,6 +218,9 @@
     <Content Include="Views\IncheckedVehicles\Details.cshtml" />
     <Content Include="Views\IncheckedVehicles\Edit.cshtml" />
     <Content Include="Views\IncheckedVehicles\Index.cshtml" />
+    <Content Include="Views\IncheckedVehicles\CheckOut.cshtml" />
+    <Content Include="Views\IncheckedVehicles\Register.cshtml" />
+    <Content Include="Views\IncheckedVehicles\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
