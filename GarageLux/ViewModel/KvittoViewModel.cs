@@ -8,9 +8,9 @@ namespace GarageLux.ViewModel
     public class KvittoViewModel
     {
         public const float Price = 60;
-        private int time;
+        private float time;
 
-        public int Time
+        public float Time
         {
             get { return time; }
             set { time = value; }
