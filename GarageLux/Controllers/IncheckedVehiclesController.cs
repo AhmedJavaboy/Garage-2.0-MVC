@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using GarageLux.DataAccessLayer;
 using GarageLux.Models;
@@ -150,16 +148,14 @@ namespace GarageLux.Controllers
             incheckedVehicle.Status = true;
             db.Entry(incheckedVehicle).State = EntityState.Modified;
             db.SaveChanges();
-            return RedirectToActionPermanent("Kvitto",id= incheckedVehicle.ID);            
+            return RedirectToActionPermanent("Kvitto", new { id = incheckedVehicle.ID });            
         }
 
         public ActionResult Search()
         {
-
             var query = from r in db.Vehicles select r;
 
             return View(query);
-
         }
 
 
@@ -181,9 +177,9 @@ namespace GarageLux.Controllers
             }
             IncheckedVehicle incheckedVehicle = db.Vehicles.Find(id);
             KvittoViewModel kvm = new KvittoViewModel();
-            float seconds =( (DateTime.Now.Millisecond - incheckedVehicle.CheckInTime.Millisecond)/ (  1000));
-            
-            kvm.Cost =.6f * seconds;
+            double TotalMinutes = DateTime.Now.Subtract(incheckedVehicle.CheckInTime).TotalMinutes;
+            kvm.Time = Math.Ceiling( TotalMinutes/60) ;
+            kvm.Cost = kvm.Time * kvm.Price;
             return View(kvm);
         }
     }

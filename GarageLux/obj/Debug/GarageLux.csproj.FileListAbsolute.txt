@@ -53,7 +53,5 @@ C:\Users\User\Source\Repos\Garage-2.0-MVC\GarageLux\bin\System.Web.WebPages.Razo
 C:\Users\User\Source\Repos\Garage-2.0-MVC\GarageLux\bin\Antlr3.Runtime.pdb
 C:\Users\User\Source\Repos\Garage-2.0-MVC\GarageLux\bin\Newtonsoft.Json.xml
 C:\Users\User\Source\Repos\Garage-2.0-MVC\GarageLux\obj\Debug\GarageLux.csprojResolveAssemblyReference.cache
-C:\Users\User\Source\Repos\Garage-2.0-MVC\GarageLux\obj\Debug\GarageLux.Migrations.DataMigration.resources
-C:\Users\User\Source\Repos\Garage-2.0-MVC\GarageLux\obj\Debug\GarageLux.csproj.GenerateResource.Cache
 C:\Users\User\Source\Repos\Garage-2.0-MVC\GarageLux\obj\Debug\GarageLux.dll
 C:\Users\User\Source\Repos\Garage-2.0-MVC\GarageLux\obj\Debug\GarageLux.pdb

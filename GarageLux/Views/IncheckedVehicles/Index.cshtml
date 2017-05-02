@@ -3,8 +3,15 @@
 @{
     ViewBag.Title = "  Garage Overview ";
 }
+<div class="row">
+    <div class="title col-md-4">
+        <h2>Register</h2>
+    </div>
+    <div class="col-md-4 pull-right">
 
-    <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Create")'">Add New Vehicle</button>
+        <button type="button" id="btn-create" class="btn btn-primary pull-right" onclick="location.href='@Url.Action("Create")'">Add New Vehicle</button>
+    </div>
+</div>
 
 <table class="table">
     <tr>

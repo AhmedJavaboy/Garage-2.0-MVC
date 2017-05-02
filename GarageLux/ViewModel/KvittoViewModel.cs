@@ -7,17 +7,17 @@ namespace GarageLux.ViewModel
 {
     public class KvittoViewModel
     {
-        public const float Price = 60;
-        private float time;
+        public double Price = 60;
+        private double time;
 
-        public float Time
+        public double Time
         {
             get { return time; }
             set { time = value; }
         }
-        private float cost;
+        private double cost;
 
-        public float Cost
+        public double Cost
         {
             get { return cost; }
             set { cost = value; }
