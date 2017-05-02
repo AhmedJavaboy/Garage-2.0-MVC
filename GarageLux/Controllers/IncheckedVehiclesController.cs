@@ -153,6 +153,16 @@ namespace GarageLux.Controllers
             return RedirectToActionPermanent("Kvitto",id= incheckedVehicle.ID);            
         }
 
+        public ActionResult Search()
+        {
+
+            var query = from r in db.Vehicles select r;
+
+            return View(query);
+
+        }
+
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

@@ -1,5 +1,5 @@
 ﻿@model GarageLux.Models.IncheckedVehicle
-
+@Styles.Render("~/Content/jquery_popup.css")
 @{
     ViewBag.Title = "Edit";
 }
@@ -65,19 +65,7 @@
                 @Html.ValidationMessageFor(model => model.CheckInTime, "", new { @class = "text-danger" })
             </div>
         </div>
-        @*<div class="form-group">
-                <label for="dtp_input1" class="col-md-2 control-label">DateTime Picking</label>
-                <div class="input-group date form_datetime col-md-5" data-date="1979-09-16T05:25:07Z" data-date-format="dd MM yyyy - HH:ii p" data-link-field="dtp_input1">
-                    <input class="form-control" size="16" type="text" value="" readonly>
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-remove"></span>
-                    </span>
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-th"></span>
-                    </span>
-                </div>
-                <input type="hidden" id="dtp_input1" value=""/><br/>
-            </div>*@
+
         @if (@Model.Status == true)
         {
             <div class="form-group">
@@ -88,7 +76,7 @@
                     @Html.ValidationMessageFor(model => model.CheckOutTime, "", new { @class = "text-danger" })
 
                 </div>
-            </div>   
+            </div>
         }
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
@@ -98,49 +86,10 @@
     </div>
 }
 
-<div>
+<div class="btn btn-default">
     @Html.ActionLink("Back to List", "Index")
 </div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
-
 }
-
-<script src="~/scripts/jquery-1.10.2.js"></script>
-<script src="~/scripts/bootstrap.min.js"></script>
-<script src="~/scripts/bootstrap-datetimepicker.js"></script>
-<script type="text/javascript">
-    $('.form_datetime').datetimepicker({
-        //language:  'fr',
-        weekStart: 1,
-        todayBtn: 1,
-        autoclose: 1,
-        todayHighlight: 1,
-        startView: 2,
-        forceParse: 0,
-        showMeridian: 1
-    });
-    //$('.form_date').datetimepicker({
-    //    language: 'fr',
-    //    weekStart: 1,
-    //    todayBtn: 1,
-    //    autoclose: 1,
-    //    todayHighlight: 1,
-    //    startView: 2,
-    //    minView: 2,
-    //    forceParse: 0
-    //});
-    //$('.form_time').datetimepicker({
-    //    language: 'fr',
-    //    weekStart: 1,
-    //    todayBtn: 1,
-    //    autoclose: 1,
-    //    todayHighlight: 1,
-    //    startView: 1,
-    //    minView: 0,
-    //    maxView: 1,
-    //    forceParse: 0
-    //}
-    //);
-</script>
